@@ -124,4 +124,38 @@
       color: $color-yellow;
     }
   }
+
+  @include below('lg') {
+    &__container {
+      flex-direction: column;
+      padding-bottom: 24px;
+    }
+
+    &__form {
+      width: 100%;
+      margin-top: 0;
+    }
+
+    &__fields {
+      flex-wrap: wrap;
+    }
+
+    &__input {
+      flex: 1 1 200px;
+      width: auto;
+    }
+  }
+
+  @include below('md') {
+    margin-top: 56px;
+
+    &__title {
+      font-size: 26px;
+    }
+
+    &__input,
+    &__button {
+      flex-basis: 100%;
+    }
+  }
 }

@@ -2,11 +2,11 @@ import { useId, useState, type CSSProperties, type KeyboardEvent } from 'react'
 import type { Product } from '../../types/product'
 import ProductCard from '../ProductCard'
 import ProductCardSkeleton from '../ProductCardSkeleton'
+import { useVisibleCards } from '../../hooks/useVisibleCards'
 import arrowIcon from '../../assets/icons/arrow.svg'
 import './ProductShelf.scss'
 
 const TABS = ['Celular', 'Acessórios', 'Tablets', 'Notebooks', 'TVs', 'Ver todos']
-const VISIBLE_CARDS = 4
 
 interface ProductShelfProps {
   title: string
@@ -28,9 +28,13 @@ function ProductShelf({
   const id = useId()
   const [activeTab, setActiveTab] = useState(0)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const visibleCards = useVisibleCards()
 
-  const maxIndex = Math.max(0, products.length - VISIBLE_CARDS)
-  const canNavigate = !isLoading && !error && products.length > VISIBLE_CARDS
+  const maxIndex = Math.max(0, products.length - visibleCards)
+  // Ao aumentar a tela, o índice salvo pode passar do limite
+  const firstIndex = Math.min(currentIndex, maxIndex)
+  const canNavigate = !isLoading && !error && products.length > visibleCards
+  const trackStyle = { '--index': firstIndex, '--visible': visibleCards } as CSSProperties
 
   function selectTab(index: number) {
     setActiveTab(index)
@@ -57,8 +61,13 @@ function ProductShelf({
 
     if (isLoading) {
       return (
-        <ul className="product-shelf__track" aria-busy="true" aria-label="Carregando produtos">
-          {Array.from({ length: VISIBLE_CARDS }, (_, index) => (
+        <ul
+          className="product-shelf__track"
+          style={trackStyle}
+          aria-busy="true"
+          aria-label="Carregando produtos"
+        >
+          {Array.from({ length: visibleCards }, (_, index) => (
             <li key={index} className="product-shelf__item">
               <ProductCardSkeleton />
             </li>
@@ -72,12 +81,9 @@ function ProductShelf({
     }
 
     return (
-      <ul
-        className="product-shelf__track"
-        style={{ '--index': currentIndex } as CSSProperties}
-      >
+      <ul className="product-shelf__track" style={trackStyle}>
         {products.map((product, index) => {
-          const isVisible = index >= currentIndex && index < currentIndex + VISIBLE_CARDS
+          const isVisible = index >= firstIndex && index < firstIndex + visibleCards
 
           return (
             <li
@@ -141,8 +147,8 @@ function ProductShelf({
             className="product-shelf__arrow product-shelf__arrow--prev"
             aria-label="Produtos anteriores"
             aria-controls={`${id}-panel`}
-            disabled={currentIndex === 0}
-            onClick={() => setCurrentIndex((index) => Math.max(0, index - 1))}
+            disabled={firstIndex === 0}
+            onClick={() => setCurrentIndex(Math.max(0, firstIndex - 1))}
           >
             <img src={arrowIcon} alt="" width={40} height={40} />
           </button>
@@ -162,8 +168,8 @@ function ProductShelf({
             className="product-shelf__arrow product-shelf__arrow--next"
             aria-label="Próximos produtos"
             aria-controls={`${id}-panel`}
-            disabled={currentIndex === maxIndex}
-            onClick={() => setCurrentIndex((index) => Math.min(maxIndex, index + 1))}
+            disabled={firstIndex === maxIndex}
+            onClick={() => setCurrentIndex(Math.min(maxIndex, firstIndex + 1))}
           >
             <img src={arrowIcon} alt="" width={40} height={40} />
           </button>

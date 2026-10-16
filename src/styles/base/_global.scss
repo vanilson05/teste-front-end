@@ -18,3 +18,20 @@ button {
 .visually-hidden {
   @include visually-hidden;
 }
+
+// Visível só quando recebe foco pelo teclado
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 200;
+  padding: 8px 16px;
+  border-radius: $radius-sm;
+  background-color: $color-purple;
+  color: $color-white;
+  transform: translateY(-200%);
+
+  &:focus {
+    transform: none;
+  }
+}

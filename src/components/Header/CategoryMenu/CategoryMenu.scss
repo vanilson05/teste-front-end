@@ -30,4 +30,24 @@
       color: $color-purple-light;
     }
   }
+
+  @include below('xl') {
+    &__list {
+      gap: 48px;
+    }
+  }
+
+  @include below('lg') {
+    &__list {
+      justify-content: flex-start;
+      gap: 32px;
+      padding-inline: 16px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    &__link {
+      white-space: nowrap;
+    }
+  }
 }

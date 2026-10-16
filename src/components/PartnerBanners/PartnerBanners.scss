@@ -66,4 +66,23 @@
     color: $color-purple;
     @include focus-ring($color-white);
   }
+
+  @include below('md') {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 56px;
+
+    &__item {
+      height: 300px;
+    }
+
+    &__content {
+      padding: 72px 24px 0;
+    }
+
+    &__title {
+      font-size: 32px;
+      line-height: 48px;
+    }
+  }
 }

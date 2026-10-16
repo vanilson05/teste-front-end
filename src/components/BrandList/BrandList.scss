@@ -28,4 +28,39 @@
     filter: drop-shadow(0 7px 10px rgba(0, 0, 0, 0.13));
     @include focus-ring;
   }
+
+  @include below('xl') {
+    &__items {
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    &__link {
+      width: 160px;
+      height: 160px;
+
+      img {
+        width: 100px;
+        height: auto;
+      }
+    }
+  }
+
+  @include below('md') {
+    margin-top: 56px;
+
+    &__title {
+      font-size: 24px;
+      line-height: 36px;
+    }
+
+    &__items {
+      margin-top: 24px;
+    }
+
+    &__link {
+      width: 140px;
+      height: 140px;
+    }
+  }
 }

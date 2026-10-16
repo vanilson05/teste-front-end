@@ -22,4 +22,15 @@
       color: $color-purple-light;
     }
   }
+
+  @include below('lg') {
+    gap: 40px;
+  }
+
+  // No celular fica só o primeiro benefício
+  @include below('md') {
+    &__item:not(:first-child) {
+      display: none;
+    }
+  }
 }

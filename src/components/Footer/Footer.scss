@@ -88,4 +88,41 @@
     line-height: normal;
     color: $color-text;
   }
+
+  @include below('lg') {
+    &__main {
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    &__divider {
+      display: none;
+    }
+
+    &__nav {
+      flex-wrap: wrap;
+      gap: 48px;
+    }
+  }
+
+  @include below('md') {
+    &__main {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-block: 32px;
+    }
+
+    &__about {
+      width: auto;
+    }
+
+    &__nav {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    &__bottom {
+      padding-inline: 16px;
+    }
+  }
 }

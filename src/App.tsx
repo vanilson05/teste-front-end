@@ -24,8 +24,11 @@ function App() {
 
   return (
     <>
+      <a href="#conteudo" className="skip-link">
+        Pular para o conteúdo
+      </a>
       <Header />
-      <main>
+      <main id="conteudo">
         <HeroBanner />
         <CategoryList />
         <ProductShelf title="Produtos relacionados" showTabs {...shelfProps} />

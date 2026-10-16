@@ -41,4 +41,47 @@
       transform: scaleX(-1);
     }
   }
+
+  @include below('lg') {
+    &__main {
+      grid-template-columns: auto 1fr auto;
+      gap: 24px;
+    }
+  }
+
+  @include below('md') {
+    &__main {
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        'logo actions'
+        'search search';
+      row-gap: 12px;
+      height: auto;
+      padding-block: 12px;
+
+      .search-bar {
+        grid-area: search;
+      }
+    }
+
+    &__logo {
+      grid-area: logo;
+
+      img {
+        width: 112px;
+        height: auto;
+      }
+    }
+
+    &__actions {
+      grid-area: actions;
+      align-items: center;
+      gap: 16px;
+    }
+
+    &__action img {
+      width: 24px;
+      height: 24px;
+    }
+  }
 }

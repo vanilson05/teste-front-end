@@ -9,7 +9,7 @@ function HeroBanner() {
         className="hero-banner__image"
         src={banner}
         srcSet={`${banner} 1x, ${banner2x} 2x`}
-        alt=""
+        alt="Vitrine de loja com letreiros de Black Friday em neon azul"
         width={1440}
         height={390}
         fetchPriority="high"

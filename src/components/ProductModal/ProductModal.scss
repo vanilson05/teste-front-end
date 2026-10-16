@@ -171,6 +171,42 @@
     color: $color-purple;
   }
 
+  @include below('md') {
+    &__dialog {
+      flex-direction: column;
+      align-items: center;
+      max-height: calc(100vh - 32px);
+      padding: 48px 24px 24px;
+      overflow-y: auto;
+    }
+
+    &__image {
+      width: 200px;
+      height: 156px;
+    }
+
+    &__info {
+      width: 100%;
+      margin: 24px 0 0;
+    }
+
+    &__title,
+    &__price {
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    &__actions {
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    &__buy {
+      flex: 1;
+      min-width: 150px;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     &,
     &__dialog {

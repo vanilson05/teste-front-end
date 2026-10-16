@@ -102,7 +102,6 @@ $cards-gap: 18px;
   }
 
   &__track {
-    --visible: 4;
     --gap: #{$cards-gap};
     display: flex;
     gap: var(--gap);
@@ -152,6 +151,45 @@ $cards-gap: 18px;
     text-align: center;
     font-size: 16px;
     color: $color-text;
+  }
+
+  // Sem espaço fora do container, as setas passam a ficar sobre os cards
+  @media (max-width: 1379px) {
+    &__arrow--prev {
+      left: -12px;
+    }
+
+    &__arrow--next {
+      right: -12px;
+    }
+  }
+
+  @include below('lg') {
+    &__tabs {
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    &__tab {
+      flex: 0 0 auto;
+      padding-inline: 24px;
+    }
+  }
+
+  @include below('md') {
+    margin-top: 56px;
+
+    &__title {
+      gap: 16px;
+      font-size: 24px;
+      line-height: 36px;
+      white-space: normal;
+      text-align: center;
+    }
+
+    &__tab {
+      font-size: 14px;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
