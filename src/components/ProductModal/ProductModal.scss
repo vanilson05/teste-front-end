@@ -1,0 +1,180 @@
+@use '../../styles/abstracts' as *;
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+}
+
+.product-modal {
+  @include flex-center;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  padding: 16px;
+  background-color: $color-overlay;
+  animation: modal-fade-in 0.2s ease;
+
+  &__dialog {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 769px;
+    min-height: 299px;
+    padding: 56px 51px 19px 56px;
+    border-radius: $radius-md;
+    background-color: $color-white;
+    animation: modal-pop-in 0.25s ease;
+  }
+
+  &__close {
+    @include button-reset;
+    @include focus-ring;
+    position: absolute;
+    top: 12px;
+    right: 24px;
+    width: 24px;
+    height: 24px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 19px;
+      height: 2px;
+      background-color: $color-icon;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(41deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  &__image {
+    flex-shrink: 0;
+    width: 247px;
+    height: 192px;
+    object-fit: contain;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 328px;
+    margin-top: 7px;
+    margin-left: auto;
+    color: $color-text;
+  }
+
+  &__title,
+  &__price {
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: 1px;
+  }
+
+  &__title {
+    font-weight: $font-regular;
+    text-transform: uppercase;
+  }
+
+  &__price {
+    margin-top: 18px;
+    font-weight: $font-semibold;
+  }
+
+  &__description {
+    max-width: 290px;
+    margin-top: 32px;
+    font-family: $font-secondary;
+    font-size: 10px;
+    font-weight: $font-medium;
+    line-height: 1.505;
+    letter-spacing: 0.5px;
+    color: $color-gray;
+  }
+
+  &__details {
+    margin-top: 18px;
+    font-family: $font-secondary;
+    font-size: 11px;
+    font-weight: $font-semibold;
+    line-height: 1;
+    letter-spacing: 0.55px;
+    color: $color-blue;
+    @include focus-ring;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  &__quantity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 110px;
+    height: 36px;
+    padding-inline: 9px;
+    border: 1px solid $color-border-light;
+    border-radius: $radius-sm;
+
+    button {
+      @include button-reset;
+      @include focus-ring;
+
+      &:disabled {
+        cursor: default;
+      }
+    }
+
+    output {
+      font-size: 16px;
+      font-weight: $font-medium;
+      line-height: 16px;
+      color: $color-purple;
+    }
+  }
+
+  &__buy {
+    @include button-reset;
+    @include focus-ring;
+    width: 188px;
+    height: 36px;
+    border-radius: $radius-md;
+    background-color: $color-yellow;
+    font-size: 14px;
+    font-weight: $font-bold;
+    text-transform: uppercase;
+    color: $color-purple;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &,
+    &__dialog {
+      animation: none;
+    }
+  }
+}

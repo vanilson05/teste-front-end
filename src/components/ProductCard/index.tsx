@@ -4,13 +4,15 @@ import './ProductCard.scss'
 
 interface ProductCardProps {
   product: Product
+  onSelect: (product: Product) => void
 }
 
-function ProductCard({ product }: ProductCardProps) {
+function ProductCard({ product, onSelect }: ProductCardProps) {
   const { productName, photo, price } = product
 
+  // O card inteiro abre o modal; pelo teclado, o botão Comprar faz o mesmo
   return (
-    <article className="product-card">
+    <article className="product-card" onClick={() => onSelect(product)}>
       <img
         className="product-card__image"
         src={photo}

@@ -14,9 +14,17 @@ interface ProductShelfProps {
   isLoading: boolean
   error: string | null
   showTabs?: boolean
+  onSelectProduct: (product: Product) => void
 }
 
-function ProductShelf({ title, products, isLoading, error, showTabs = false }: ProductShelfProps) {
+function ProductShelf({
+  title,
+  products,
+  isLoading,
+  error,
+  showTabs = false,
+  onSelectProduct,
+}: ProductShelfProps) {
   const id = useId()
   const [activeTab, setActiveTab] = useState(0)
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -77,7 +85,7 @@ function ProductShelf({ title, products, isLoading, error, showTabs = false }: P
               className={`product-shelf__item${isVisible ? '' : ' product-shelf__item--hidden'}`}
               inert={!isVisible}
             >
-              <ProductCard product={product} />
+              <ProductCard product={product} onSelect={onSelectProduct} />
             </li>
           )
         })}
