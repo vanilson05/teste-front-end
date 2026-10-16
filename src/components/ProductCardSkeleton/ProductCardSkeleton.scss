@@ -1,0 +1,59 @@
+@use '../../styles/abstracts' as *;
+
+@keyframes skeleton-shimmer {
+  from {
+    background-position: 200% 0;
+  }
+
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.product-card-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 500px;
+  padding: 32px 14px 16px 12px;
+  border-radius: $radius-lg;
+  background-color: $color-white;
+  box-shadow: $shadow-card;
+
+  &__block {
+    display: block;
+    border-radius: $radius-sm;
+    background: linear-gradient(90deg, $color-skeleton 25%, $color-bg-light 50%, $color-skeleton 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.4s linear infinite;
+
+    &--image {
+      height: 228px;
+    }
+
+    &--name {
+      height: 40px;
+    }
+
+    &--short {
+      width: 60%;
+      height: 16px;
+    }
+
+    &--price {
+      width: 45%;
+      height: 26px;
+    }
+
+    &--button {
+      height: 44px;
+      margin-top: auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__block {
+      animation: none;
+    }
+  }
+}

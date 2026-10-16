@@ -1,0 +1,66 @@
+@use '../../styles/abstracts' as *;
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  padding: 32px 14px 16px 12px;
+  border-radius: $radius-lg;
+  background-color: $color-white;
+  box-shadow: $shadow-card;
+  color: $color-text;
+  line-height: normal;
+
+  &__image {
+    width: 100%;
+    height: 228px;
+    object-fit: contain;
+  }
+
+  &__name {
+    display: -webkit-box;
+    min-height: 45px;
+    margin-top: 9px;
+    overflow: hidden;
+    font-size: 15px;
+    font-weight: $font-light;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  &__old-price {
+    margin-top: 13px;
+    font-size: 16px;
+    color: $color-gray-medium;
+  }
+
+  &__price {
+    margin-top: 2px;
+    font-size: 20px;
+    font-weight: $font-bold;
+  }
+
+  &__installments {
+    margin-top: 2px;
+    font-size: 12px;
+  }
+
+  &__shipping {
+    margin-top: 7px;
+    font-size: 12px;
+    color: $color-blue;
+  }
+
+  &__button {
+    @include button-reset;
+    @include focus-ring;
+    height: 44px;
+    margin-top: auto;
+    border-radius: $radius-sm;
+    background-color: $color-blue;
+    font-size: 14px;
+    font-weight: $font-bold;
+    text-transform: uppercase;
+    color: $color-white;
+  }
+}

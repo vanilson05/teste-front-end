@@ -1,0 +1,163 @@
+@use '../../styles/abstracts' as *;
+
+$cards-gap: 18px;
+
+.product-shelf {
+  @include container;
+  margin-top: 90px;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__title {
+    display: flex;
+    align-items: flex-start;
+    gap: 36px;
+    width: 100%;
+    max-width: 1138px;
+    font-size: 30px;
+    font-weight: $font-bold;
+    line-height: 45px;
+    color: $color-blue;
+    white-space: nowrap;
+
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      margin-top: 18px;
+      background-color: $color-line;
+    }
+  }
+
+  &__see-all {
+    font-size: 15px;
+    font-weight: $font-bold;
+    line-height: normal;
+    color: $color-text;
+    @include focus-ring;
+
+    &:hover {
+      color: $color-blue;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    width: 100%;
+  }
+
+  &__tab {
+    @include button-reset;
+    flex: 1;
+    height: 40px;
+    margin-right: -1px;
+    border: 1px solid $color-border;
+    background-color: $color-white;
+    font-size: 16px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: $color-text-dark;
+    transition: color $transition;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover,
+    &--active {
+      color: $color-blue;
+    }
+
+    &--active {
+      font-weight: $font-bold;
+    }
+
+    &:focus-visible {
+      position: relative;
+      z-index: 1;
+      outline: 2px solid $color-blue;
+      outline-offset: -2px;
+    }
+  }
+
+  &__body {
+    // flow-root impede que a margem negativa do viewport colapse com esta
+    display: flow-root;
+    position: relative;
+    margin-top: 24px;
+  }
+
+  &__viewport {
+    // O padding evita que a sombra dos cards seja cortada pelo overflow;
+    // a margem negativa compensa e deixa a área dos cards com 1270px
+    margin: -20px -15px;
+    padding: 20px;
+    overflow: hidden;
+  }
+
+  &__track {
+    --visible: 4;
+    --gap: #{$cards-gap};
+    display: flex;
+    gap: var(--gap);
+    transform: translateX(calc(var(--index, 0) * -1 * (100% + var(--gap)) / var(--visible)));
+    transition: transform 0.4s ease;
+  }
+
+  &__item {
+    flex: 0 0 calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible));
+    min-width: 0;
+    transition: opacity 0.4s ease;
+
+    &--hidden {
+      opacity: 0;
+    }
+  }
+
+  &__arrow {
+    @include button-reset;
+    @include focus-ring;
+    position: absolute;
+    top: 246px;
+    z-index: 1;
+    border-radius: 50%;
+    transition: opacity $transition;
+
+    &--prev {
+      left: -46px;
+    }
+
+    &--next {
+      right: -46px;
+
+      img {
+        transform: scaleX(-1);
+      }
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+  }
+
+  &__message {
+    padding: 80px 16px;
+    text-align: center;
+    font-size: 16px;
+    color: $color-text;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__track,
+    &__item {
+      transition: none;
+    }
+  }
+}
