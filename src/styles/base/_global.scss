@@ -1,0 +1,20 @@
+@use '../abstracts' as *;
+
+body {
+  font-family: $font-primary;
+  font-weight: $font-regular;
+  color: $color-text;
+  background-color: $color-white;
+}
+
+body.is-locked {
+  overflow: hidden;
+}
+
+button {
+  cursor: pointer;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}

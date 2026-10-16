@@ -1,0 +1,57 @@
+// Cores
+$color-blue: #3442b5;
+$color-purple: #271c47;
+$color-purple-light: #3019b2;
+$color-yellow: #f7ca11;
+$color-white: #fff;
+$color-black: #161615;
+
+$color-text: #3f3f40;
+$color-text-dark: #3b3b3b;
+$color-gray: #9f9f9f;
+$color-gray-dark: #4e4e4e;
+$color-gray-medium: #808080;
+$color-gray-input: #676767;
+$color-footer-link: rgba(34, 34, 34, 0.71);
+
+$color-bg-light: #f4f4f4;
+$color-bg-search: #f6f5f2;
+$color-border: #bdbdbd;
+$color-border-light: #d9d9d9;
+$color-border-input: #e7e7e7;
+$color-overlay: rgba(0, 0, 0, 0.6);
+
+// Tipografia
+$font-primary: 'Poppins', sans-serif;
+$font-secondary: 'Work Sans', sans-serif;
+$font-title: 'Outfit', sans-serif;
+
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 500;
+$font-semibold: 600;
+$font-bold: 700;
+
+// Layout
+$container-width: 1280px;
+$container-padding: 16px;
+$page-width: 1440px;
+
+$radius-sm: 4px;
+$radius-md: 6px;
+$radius-lg: 10px;
+$radius-xl: 20px;
+
+$shadow-card: 0 3px 19px rgba(0, 0, 0, 0.22);
+$shadow-category: 0 4px 11px rgba(0, 0, 0, 0.13);
+$shadow-header: 0 8px 16px rgba(57, 48, 19, 0.12);
+
+$transition: 0.2s ease;
+
+// Breakpoints
+$breakpoints: (
+  'sm': 480px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+);
