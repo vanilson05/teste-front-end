@@ -1,0 +1,41 @@
+@use '../../../styles/abstracts' as *;
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  padding-inline: 16px 24px;
+  border-radius: $radius-lg;
+  background-color: $color-bg-search;
+
+  &__input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: $font-medium;
+    color: $color-text;
+    outline: none;
+
+    &::placeholder {
+      color: $color-gray;
+    }
+
+    &::-webkit-search-cancel-button {
+      cursor: pointer;
+    }
+  }
+
+  &:focus-within {
+    box-shadow: 0 0 0 2px rgba($color-blue, 0.3);
+  }
+
+  &__button {
+    @include button-reset;
+    @include focus-ring;
+    flex-shrink: 0;
+  }
+}

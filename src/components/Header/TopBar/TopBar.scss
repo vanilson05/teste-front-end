@@ -1,0 +1,25 @@
+@use '../../../styles/abstracts' as *;
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 119px;
+  height: 32px;
+  border-bottom: 1px solid $color-divider;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 12px;
+    font-weight: $font-medium;
+    line-height: normal;
+    color: $color-gray;
+
+    strong {
+      font-weight: $font-semibold;
+      color: $color-purple-light;
+    }
+  }
+}

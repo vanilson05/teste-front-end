@@ -1,0 +1,44 @@
+@use '../../styles/abstracts' as *;
+
+.header {
+  background-color: $color-white;
+
+  &__container {
+    @include container;
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 630px) 1fr;
+    align-items: center;
+    height: 72px;
+    border-bottom: 1px solid $color-divider;
+  }
+
+  &__logo {
+    justify-self: start;
+    @include focus-ring;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: flex-start;
+    justify-self: end;
+    gap: 32px;
+  }
+
+  &__action {
+    display: block;
+    transition: opacity $transition;
+    @include focus-ring;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    // O ícone vem espelhado no Figma
+    &--orders img {
+      transform: scaleX(-1);
+    }
+  }
+}

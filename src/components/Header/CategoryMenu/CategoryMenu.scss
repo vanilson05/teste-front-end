@@ -1,0 +1,33 @@
+@use '../../../styles/abstracts' as *;
+
+.category-menu {
+  height: 40px;
+  background-color: $color-white;
+  box-shadow: $shadow-header;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 91px;
+    height: 100%;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    font-weight: $font-semibold;
+    line-height: normal;
+    text-transform: uppercase;
+    color: $color-gray;
+    transition: color $transition;
+    @include focus-ring;
+
+    &:hover,
+    &--highlight {
+      color: $color-purple-light;
+    }
+  }
+}
