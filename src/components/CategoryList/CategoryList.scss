@@ -1,0 +1,72 @@
+@use '../../styles/abstracts' as *;
+
+.category-list {
+  @include container;
+  padding-top: 39px;
+
+  &__items {
+    display: flex;
+    justify-content: center;
+    gap: 42px;
+  }
+
+  &__item {
+    @include button-reset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    width: 128px;
+
+    &:hover .category-list__icon {
+      transform: translateY(-4px);
+    }
+
+    &:focus-visible {
+      outline: none;
+
+      .category-list__icon {
+        outline: 2px solid $color-blue;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  &__icon {
+    @include flex-center;
+    width: 128px;
+    height: 128px;
+    border-radius: $radius-lg;
+    background-color: $color-bg-light;
+    box-shadow: $shadow-category;
+    transition:
+      transform $transition,
+      background-color $transition;
+
+    img {
+      width: 61px;
+      height: 61px;
+      object-fit: contain;
+    }
+  }
+
+  &__name {
+    font-size: 14px;
+    font-weight: $font-medium;
+    line-height: normal;
+    color: $color-gray-dark;
+    white-space: nowrap;
+  }
+
+  &__item--active {
+    .category-list__icon {
+      background-color: $color-white;
+      box-shadow: 0 2px 9px rgba(0, 0, 0, 0.22);
+    }
+
+    .category-list__name {
+      font-weight: $font-semibold;
+      color: $color-purple-light;
+    }
+  }
+}
