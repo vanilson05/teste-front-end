@@ -3,17 +3,16 @@ import partnerImage from '../../assets/images/partner-banner.jpg'
 import partnerImage2x from '../../assets/images/partner-banner@2x.jpg'
 import './PartnerBanners.scss'
 
-interface PartnerBanner {
+export interface PartnerBanner {
   title: string
   description: string
 }
 
-const banners: PartnerBanner[] = [
-  { title: 'Parceiros', description: 'Lorem ipsum dolor sit amet, consectetur' },
-  { title: 'Parceiros', description: 'Lorem ipsum dolor sit amet, consectetur' },
-]
+interface PartnerBannersProps {
+  banners: PartnerBanner[]
+}
 
-function PartnerBanners() {
+function PartnerBanners({ banners }: PartnerBannersProps) {
   const id = useId()
 
   return (
@@ -22,8 +21,8 @@ function PartnerBanners() {
         Nossos parceiros
       </h2>
 
-      {banners.map(({ title, description }, index) => (
-        <article key={index} className="partner-banners__item">
+      {banners.map(({ title, description }) => (
+        <article key={description} className="partner-banners__item">
           <img
             className="partner-banners__image"
             src={partnerImage}

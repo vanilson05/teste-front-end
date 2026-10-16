@@ -27,7 +27,10 @@ function Footer() {
       <div className="footer__main">
         <div className="footer__about">
           <img src={logo} alt="Econverse" width={164} height={48} loading="lazy" />
-          <p className="footer__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p className="footer__text">
+            Tecnologia, moda, casa e muito mais em um só lugar, com compra segura e entrega para
+            todo o Brasil.
+          </p>
 
           <ul className="footer__social">
             {socialLinks.map(({ name, icon }) => (
@@ -61,7 +64,7 @@ function Footer() {
       </div>
 
       <div className="footer__bottom">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>&copy; 2026 Econverse. Todos os direitos reservados.</p>
       </div>
     </footer>
   )
