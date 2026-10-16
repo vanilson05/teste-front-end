@@ -1,0 +1,91 @@
+@use '../../styles/abstracts' as *;
+
+.footer {
+  background-color: $color-bg-light;
+
+  &__main {
+    @include container;
+    display: flex;
+    align-items: center;
+    gap: 90px;
+    padding-block: 42px;
+  }
+
+  &__about {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 354px;
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: $font-light;
+    line-height: normal;
+    color: $color-text;
+  }
+
+  &__social {
+    display: flex;
+    gap: 26px;
+    margin-top: 9px;
+  }
+
+  &__social-link {
+    display: block;
+    @include focus-ring;
+  }
+
+  &__divider {
+    align-self: stretch;
+    width: 1px;
+    min-height: 198px;
+    background-color: rgba(40, 40, 40, 0.18);
+  }
+
+  &__nav {
+    display: flex;
+    gap: 100px;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: $color-footer-link;
+    white-space: nowrap;
+  }
+
+  &__group-title {
+    font-size: 16px;
+    font-weight: $font-bold;
+    line-height: 16px;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__link {
+    font-family: $font-secondary;
+    font-size: 14px;
+    line-height: 16px;
+    @include focus-ring;
+
+    &:hover {
+      color: $color-blue;
+    }
+  }
+
+  &__bottom {
+    padding-block: 13px;
+    background-color: $color-white;
+    text-align: center;
+    font-size: 13px;
+    font-weight: $font-light;
+    line-height: normal;
+    color: $color-text;
+  }
+}

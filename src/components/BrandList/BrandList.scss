@@ -1,0 +1,31 @@
+@use '../../styles/abstracts' as *;
+
+.brand-list {
+  @include container;
+  margin-top: 90px;
+
+  &__title {
+    font-size: 30px;
+    font-weight: $font-bold;
+    line-height: 45px;
+    text-align: center;
+    color: $color-blue;
+  }
+
+  &__items {
+    display: flex;
+    justify-content: center;
+    gap: 42px;
+    margin-top: 32px;
+  }
+
+  &__link {
+    @include flex-center;
+    width: 211px;
+    height: 211px;
+    border-radius: 50%;
+    background-color: $color-white;
+    filter: drop-shadow(0 7px 10px rgba(0, 0, 0, 0.13));
+    @include focus-ring;
+  }
+}

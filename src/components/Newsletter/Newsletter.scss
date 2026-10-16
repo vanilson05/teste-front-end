@@ -1,0 +1,127 @@
+@use '../../styles/abstracts' as *;
+
+.newsletter {
+  min-height: 162px;
+  margin-top: 90px;
+  background-color: $color-purple;
+  color: $color-white;
+
+  &__container {
+    @include container;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 32px;
+    padding-block: 40px 18px;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 515px;
+  }
+
+  &__title {
+    font-family: $font-title;
+    font-size: 32px;
+    font-weight: $font-semibold;
+    line-height: 1.2;
+  }
+
+  &__description {
+    font-size: 14px;
+    font-weight: $font-light;
+    line-height: 18px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 5px;
+  }
+
+  &__fields {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__input {
+    width: 233px;
+    height: 44px;
+    padding-inline: 24px;
+    border: 1px solid $color-border-input;
+    border-radius: 8px;
+    background-color: $color-white;
+    font-size: 14px;
+    line-height: 18px;
+    color: $color-text;
+
+    &::placeholder {
+      color: $color-gray-input;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-yellow;
+      outline-offset: 1px;
+    }
+  }
+
+  &__button {
+    @include button-reset;
+    height: 42px;
+    padding-inline: 40px;
+    border-radius: 8px;
+    background-color: $color-yellow;
+    font-size: 14px;
+    font-weight: $font-semibold;
+    line-height: 12px;
+    text-transform: uppercase;
+    color: $color-black;
+    @include focus-ring($color-white);
+  }
+
+  &__terms {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: fit-content;
+    font-size: 14px;
+    line-height: 1.5;
+    cursor: pointer;
+
+    input {
+      flex-shrink: 0;
+      width: 15px;
+      height: 15px;
+      border: 1px solid #8c342b;
+      border-radius: 1px;
+      background-color: #f6f6f6;
+      appearance: none;
+      cursor: pointer;
+      @include focus-ring($color-yellow);
+
+      &:checked {
+        border-color: $color-yellow;
+        background: $color-yellow
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3 3 7-7' fill='none' stroke='%23271c47' stroke-width='2.5'/%3E%3C/svg%3E")
+          center / 11px no-repeat;
+      }
+    }
+  }
+
+  &__status {
+    min-height: 18px;
+    font-size: 13px;
+    line-height: 18px;
+
+    &--error {
+      color: #ffb4a8;
+    }
+
+    &--success {
+      color: $color-yellow;
+    }
+  }
+}
