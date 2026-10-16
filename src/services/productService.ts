@@ -1,9 +1,9 @@
 import type { Product, ProductsResponse } from '../types/product'
 
-const PRODUCTS_URL =
-  'https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json'
+// Proxy para o JSON da Econverse (vite.config.ts em dev, vercel.json em produção)
+const PRODUCTS_URL = '/api/produtos'
 
-// Cópia local usada quando a URL original é bloqueada por CORS ou está fora do ar
+// Cópia local usada quando o proxy não está disponível ou o servidor está fora do ar
 const FALLBACK_URL = `${import.meta.env.BASE_URL}data/produtos.json`
 
 async function requestProducts(url: string, signal?: AbortSignal): Promise<Product[]> {
