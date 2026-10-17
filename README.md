@@ -30,7 +30,7 @@ npm run build
 
 ## Decisões técnicas
 
-- **JSON via proxy, com cópia local como reserva:** o servidor da Econverse não envia o cabeçalho de CORS, então o navegador bloqueia a requisição direta. Por isso o JSON é buscado em `/api/produtos`, que aponta para a URL original pelo proxy do `vite.config.ts` (em desenvolvimento) e pelo rewrite do `vercel.json` (em produção). Se essa chamada falhar, o service usa a cópia em `public/data/produtos.json`.
+- **JSON via proxy, com cópia local como reserva:** o servidor da Econverse não envia o cabeçalho de CORS, então o navegador bloqueia a requisição direta. Por isso o JSON é buscado em `/api/produtos`, que aponta para a URL original pelo proxy do `vite.config.ts` (em desenvolvimento) e pelo redirect do `netlify.toml` (em produção). Se essa chamada falhar, o service usa a cópia em `public/data/produtos.json`.
 - **Abas que não filtram:** o JSON não informa a categoria dos produtos. As abas da vitrine mudam o estado visual e voltam o carrossel para o início, mas exibem sempre a mesma lista.
 - **Preço antigo e parcelamento calculados:** o JSON traz apenas o preço atual, em centavos. O preço riscado é o atual mais 10%, e o parcelamento é em 2x sem juros, calculados em `src/utils/price.ts`.
 - **Componentes reutilizados:** a vitrine (`ProductShelf`) aparece três vezes e os banners de parceiros (`PartnerBanners`) duas vezes, cada um configurado por props. Os produtos são buscados uma única vez no `App` e repassados às três vitrines.

@@ -1,0 +1,20 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# O servidor da Econverse não envia CORS, então o JSON passa por este proxy
+[[redirects]]
+  from = "/api/produtos"
+  to = "https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

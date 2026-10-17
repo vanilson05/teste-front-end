@@ -2,7 +2,7 @@ import react from '@vitejs/plugin-react'
 import { defineConfig, type ProxyOptions } from 'vite'
 
 // O servidor da Econverse não envia cabeçalho de CORS, então o JSON passa por um proxy
-// (em produção, o mesmo rewrite está no vercel.json)
+// (em produção, o mesmo redirect está no netlify.toml)
 const productsProxy: Record<string, ProxyOptions> = {
   '/api/produtos': {
     target: 'https://app.econverse.com.br',

@@ -1,6 +1,6 @@
 import type { Product, ProductsResponse } from '../types/product'
 
-// Proxy para o JSON da Econverse (vite.config.ts em dev, vercel.json em produção)
+// Proxy para o JSON da Econverse (vite.config.ts em dev, netlify.toml em produção)
 const PRODUCTS_URL = '/api/produtos'
 
 // Cópia local usada quando o proxy não está disponível ou o servidor está fora do ar
