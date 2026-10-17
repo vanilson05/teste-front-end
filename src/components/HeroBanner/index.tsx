@@ -1,14 +1,16 @@
-import banner from '../../assets/images/hero-banner.jpg'
-import banner2x from '../../assets/images/hero-banner@2x.jpg'
 import './HeroBanner.scss'
+
+// Fica em /public para ser pré-carregado no index.html (é o maior elemento da primeira dobra)
+const BANNER = '/images/hero-banner.webp'
+const BANNER_2X = '/images/hero-banner@2x.webp'
 
 function HeroBanner() {
   return (
     <section className="hero-banner" aria-labelledby="hero-banner-title">
       <img
         className="hero-banner__image"
-        src={banner}
-        srcSet={`${banner} 1x, ${banner2x} 2x`}
+        src={BANNER}
+        srcSet={`${BANNER} 1x, ${BANNER_2X} 2x`}
         alt="Vitrine de loja com letreiros de Black Friday em neon azul"
         width={1440}
         height={390}

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import Header from './components/Header'
 import HeroBanner from './components/HeroBanner'
 import CategoryList from './components/CategoryList'
@@ -7,9 +7,11 @@ import PartnerBanners, { type PartnerBanner } from './components/PartnerBanners'
 import BrandList from './components/BrandList'
 import Newsletter from './components/Newsletter'
 import Footer from './components/Footer'
-import ProductModal from './components/ProductModal'
 import { useProducts } from './hooks/useProducts'
 import type { Product } from './types/product'
+
+// O modal só é baixado quando o usuário abre um produto
+const ProductModal = lazy(() => import('./components/ProductModal'))
 
 const firstPartnerBanners: PartnerBanner[] = [
   { title: 'Parceiros', description: 'Ofertas exclusivas das marcas que você ama' },
@@ -52,11 +54,13 @@ function App() {
       <Footer />
 
       {selectedProduct && (
-        <ProductModal
-          key={selectedProduct.productName}
-          product={selectedProduct}
-          onClose={() => setSelectedProduct(null)}
-        />
+        <Suspense fallback={null}>
+          <ProductModal
+            key={selectedProduct.productName}
+            product={selectedProduct}
+            onClose={() => setSelectedProduct(null)}
+          />
+        </Suspense>
       )}
     </>
   )

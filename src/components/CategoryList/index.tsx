@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import technologyIcon from '../../assets/images/categories/technology.png'
-import supermarketIcon from '../../assets/images/categories/supermarket.png'
-import drinksIcon from '../../assets/images/categories/drinks.png'
-import toolsIcon from '../../assets/images/categories/tools.png'
-import healthIcon from '../../assets/images/categories/health.png'
-import sportsIcon from '../../assets/images/categories/sports.png'
-import fashionIcon from '../../assets/images/categories/fashion.png'
+import technologyIcon from '../../assets/images/categories/technology.webp'
+import supermarketIcon from '../../assets/images/categories/supermarket.webp'
+import drinksIcon from '../../assets/images/categories/drinks.webp'
+import toolsIcon from '../../assets/images/categories/tools.webp'
+import healthIcon from '../../assets/images/categories/health.webp'
+import sportsIcon from '../../assets/images/categories/sports.webp'
+import fashionIcon from '../../assets/images/categories/fashion.webp'
 import './CategoryList.scss'
 
 interface Category {

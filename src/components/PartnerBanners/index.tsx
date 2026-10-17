@@ -1,6 +1,6 @@
 import { useId } from 'react'
-import partnerImage from '../../assets/images/partner-banner.jpg'
-import partnerImage2x from '../../assets/images/partner-banner@2x.jpg'
+import partnerImage from '../../assets/images/partner-banner.webp'
+import partnerImage2x from '../../assets/images/partner-banner@2x.webp'
 import './PartnerBanners.scss'
 
 export interface PartnerBanner {
