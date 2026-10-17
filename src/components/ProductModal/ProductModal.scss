@@ -43,6 +43,11 @@
     right: 24px;
     width: 24px;
     height: 24px;
+    transition: transform $transition;
+
+    @include hover {
+      transform: rotate(90deg);
+    }
 
     &::before,
     &::after {
@@ -119,7 +124,7 @@
     color: $color-blue;
     @include focus-ring;
 
-    &:hover {
+    @include hover {
       text-decoration: underline;
     }
   }
@@ -144,6 +149,13 @@
     button {
       @include button-reset;
       @include focus-ring;
+      transition: opacity $transition;
+
+      @include hover {
+        &:not(:disabled) {
+          opacity: 0.6;
+        }
+      }
 
       &:disabled {
         cursor: default;
@@ -169,6 +181,7 @@
     font-weight: $font-bold;
     text-transform: uppercase;
     color: $color-purple;
+    @include button-feedback;
   }
 
   @include below('md') {
@@ -204,13 +217,6 @@
     &__buy {
       flex: 1;
       min-width: 150px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    &,
-    &__dialog {
-      animation: none;
     }
   }
 }

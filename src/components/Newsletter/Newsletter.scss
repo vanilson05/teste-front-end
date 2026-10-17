@@ -57,6 +57,11 @@
     font-size: 14px;
     line-height: 18px;
     color: $color-text;
+    transition: border-color $transition;
+
+    @include hover {
+      border-color: $color-yellow;
+    }
 
     &::placeholder {
       color: $color-gray-input;
@@ -79,6 +84,7 @@
     line-height: 12px;
     text-transform: uppercase;
     color: $color-black;
+    @include button-feedback;
     @include focus-ring($color-white);
   }
 

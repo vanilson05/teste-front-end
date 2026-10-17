@@ -40,9 +40,10 @@ $cards-gap: 18px;
     font-weight: $font-bold;
     line-height: normal;
     color: $color-text;
+    transition: color $transition;
     @include focus-ring;
 
-    &:hover {
+    @include hover {
       color: $color-blue;
     }
   }
@@ -63,19 +64,22 @@ $cards-gap: 18px;
     line-height: 16px;
     text-transform: uppercase;
     color: $color-text-dark;
-    transition: color $transition;
+    transition:
+      color $transition,
+      background-color $transition;
 
     &:last-child {
       margin-right: 0;
     }
 
-    &:hover,
-    &--active {
+    @include hover {
       color: $color-blue;
+      background-color: $color-bg-light;
     }
 
     &--active {
       font-weight: $font-bold;
+      color: $color-blue;
     }
 
     &:focus-visible {
@@ -126,7 +130,15 @@ $cards-gap: 18px;
     top: 246px;
     z-index: 1;
     border-radius: 50%;
-    transition: opacity $transition;
+    transition:
+      opacity $transition,
+      transform $transition;
+
+    @include hover {
+      &:not(:disabled) {
+        transform: scale(1.1);
+      }
+    }
 
     &--prev {
       left: -46px;
@@ -189,13 +201,6 @@ $cards-gap: 18px;
 
     &__tab {
       font-size: 14px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    &__track,
-    &__item {
-      transition: none;
     }
   }
 }

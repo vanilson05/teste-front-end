@@ -18,8 +18,10 @@
     gap: 22px;
     width: 128px;
 
-    &:hover .category-list__icon {
-      transform: translateY(-4px);
+    @include hover {
+      .category-list__icon {
+        transform: translateY(-4px);
+      }
     }
 
     &:focus-visible {

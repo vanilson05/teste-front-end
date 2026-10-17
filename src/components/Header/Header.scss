@@ -32,8 +32,8 @@
     transition: opacity $transition;
     @include focus-ring;
 
-    &:hover {
-      opacity: 0.7;
+    @include hover {
+      opacity: 0.6;
     }
 
     // O ícone vem espelhado no Figma

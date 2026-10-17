@@ -26,7 +26,15 @@
     border-radius: 50%;
     background-color: $color-white;
     filter: drop-shadow(0 7px 10px rgba(0, 0, 0, 0.13));
+    transition:
+      transform $transition,
+      filter $transition;
     @include focus-ring;
+
+    @include hover {
+      transform: translateY(-4px);
+      filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.18));
+    }
   }
 
   @include below('xl') {

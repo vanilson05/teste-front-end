@@ -33,7 +33,12 @@
 
   &__social-link {
     display: block;
+    transition: opacity $transition;
     @include focus-ring;
+
+    @include hover {
+      opacity: 0.6;
+    }
   }
 
   &__divider {
@@ -72,9 +77,10 @@
     font-family: $font-secondary;
     font-size: 14px;
     line-height: 16px;
+    transition: color $transition;
     @include focus-ring;
 
-    &:hover {
+    @include hover {
       color: $color-blue;
     }
   }

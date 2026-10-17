@@ -8,6 +8,7 @@
   padding-inline: 16px 24px;
   border-radius: $radius-lg;
   background-color: $color-bg-search;
+  transition: box-shadow $transition;
 
   &__input {
     flex: 1;
@@ -37,5 +38,10 @@
     @include button-reset;
     @include focus-ring;
     flex-shrink: 0;
+    transition: opacity $transition;
+
+    @include hover {
+      opacity: 0.6;
+    }
   }
 }

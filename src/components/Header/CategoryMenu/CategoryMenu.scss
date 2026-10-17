@@ -25,7 +25,10 @@
     transition: color $transition;
     @include focus-ring;
 
-    &:hover,
+    @include hover {
+      color: $color-purple-light;
+    }
+
     &--highlight {
       color: $color-purple-light;
     }
